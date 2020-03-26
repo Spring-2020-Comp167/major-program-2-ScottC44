@@ -95,6 +95,7 @@ public class Vehicle{
     }
     @Override
     public String toString() {
-        return "Year: "+year+" Make: "+make+" Model: "+model+" Mileage: "+mileage+" Miles Per Gallon: "+mpg+" Color: "+color+" Seats: "+seats+" Doors: "+doors+" Price: "+price+" Vehicle ID: "+vehicleID+" Engine: "+engine.toString();
+        return "Year: "+year+"\n Make: "+make+"\n Model: "+model+"\n Mileage: "+mileage+"\n Miles Per Gallon: "+mpg+"\n Color: "+
+                color+"\n Seats: "+seats+"\n Doors: "+doors+"\n Price: "+price+"\n Vehicle ID: "+vehicleID+"\n Engine: "+engine.toString();
     }
 }

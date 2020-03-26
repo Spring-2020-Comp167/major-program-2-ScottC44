@@ -4,17 +4,17 @@ import javax.swing.*;
 import javax.swing.event.*;
 
 public class MyPanel extends JPanel {
-    private JButton jcomp1;
-    private JButton jcomp2;
-    private JComboBox jcomp3;
-    private JTextField jcomp4;
-    private JLabel jcomp5;
-    private JLabel jcomp6;
-    private JLabel jcomp7;
-    private JTextField jcomp8;
-    private JTextArea jcomp9;
-    private JLabel jcomp10;
-    private JLabel jcomp11;
+    public JButton jcomp1;
+    public JButton jcomp2;
+    public JComboBox jcomp3;
+    public JTextField jcomp4;
+    public JLabel jcomp5;
+    public JLabel jcomp6;
+    public JLabel jcomp7;
+    public JTextField jcomp8;
+    public static JTextArea jcomp9;
+    public JLabel jcomp10;
+    public JLabel jcomp11;
 
     public MyPanel() {
         //construct preComponents

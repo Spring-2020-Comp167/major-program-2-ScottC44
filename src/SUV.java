@@ -1,5 +1,14 @@
 public class SUV extends Vehicle {
     private double cargoSpace;
+    private boolean removableSeats;
+
+    public boolean getRemovableSeats(){
+        return removableSeats;
+    }
+    public void setRemovableSeats(boolean removableSeats){
+        this.removableSeats = removableSeats;
+    }
+
     public double getCargoSpace() {
         return cargoSpace;
     }
@@ -15,6 +24,6 @@ public class SUV extends Vehicle {
     }
     @Override
     public String toString() {
-        return super.toString()+" cargo space: "+cargoSpace;
+        return super.toString()+" cargo space: "+cargoSpace+ " removable seats: "+removableSeats;
     }
 }

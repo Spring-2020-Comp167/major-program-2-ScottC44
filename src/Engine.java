@@ -47,6 +47,6 @@ public class Engine{
     }
     @Override
     public String toString() {
-        return "Transmission: "+transmission+" cylinders: "+cylinders+" four wheel drive: "+fourWheelDrive+" hybrid: "+hybrid+" horse power: "+horsePower;
+        return "Transmission: "+transmission+"\n cylinders: "+cylinders+"\n four wheel drive: "+fourWheelDrive+"\n hybrid: "+hybrid+"\n horse power: "+horsePower;
     }
 }
