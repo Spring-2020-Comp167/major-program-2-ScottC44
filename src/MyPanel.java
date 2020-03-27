@@ -65,7 +65,7 @@ public class MyPanel extends JPanel {
         jcomp9.setBounds (25, 320, 400, 300);
         jcomp10.setBounds (25, 105, 100, 25);
         jcomp11.setBounds (25, 290, 100, 25);
-        scroll.setBounds(25, 400, 400, 300);
+        scroll.setBounds(25, 400, 400 , 300);
     }
 
 
