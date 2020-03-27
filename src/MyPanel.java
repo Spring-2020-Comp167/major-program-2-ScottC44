@@ -12,7 +12,7 @@ public class MyPanel extends JPanel {
     public JLabel jcomp6;
     public JLabel jcomp7;
     public JTextField jcomp8;
-    public static JTextArea jcomp9;
+    public  static JTextArea jcomp9;
     public JLabel jcomp10;
     public JLabel jcomp11;
     public static JScrollPane scroll;
@@ -33,8 +33,7 @@ public class MyPanel extends JPanel {
         jcomp9 = new JTextArea ();
         jcomp10 = new JLabel ("Add a vehicle:");
         jcomp11 = new JLabel ("Vehicle Database");
-        JScrollPane scroll = new JScrollPane (jcomp9,
-                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        JScrollPane scroll = new JScrollPane (jcomp9);
 
         //adjust size and set layout
         setPreferredSize (new Dimension (463, 568));
@@ -49,7 +48,7 @@ public class MyPanel extends JPanel {
         add (jcomp6);
         add (jcomp7);
         add (jcomp8);
-        add (jcomp9);
+       // add (jcomp9);
         add (jcomp10);
         add (jcomp11);
         add (scroll);
@@ -66,6 +65,7 @@ public class MyPanel extends JPanel {
         jcomp9.setBounds (25, 320, 360, 300);
         jcomp10.setBounds (25, 105, 100, 25);
         jcomp11.setBounds (25, 290, 100, 25);
+        scroll.setBounds(25, 320, 360, 300);
     }
 
 

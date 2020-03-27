@@ -151,6 +151,15 @@ public class Lot extends MyPanel{
         }
     }
     public void saveVehicles(String fileName) throws IOException {
+        FileWriter fw=new FileWriter(fileName);
+
+        for(Vehicle v:vehicles) {
+            String str="";
+            str+=v.getMpg()+" "+v.getColor()+" "+v.getEngine().getTransmission()+" "+v.getEngine().getCylinders()+" "+v.getEngine().isFourWheelDrive()+" "+v.getEngine().isHybrid()+" "+v.getEngine().getHorsePower()+" "+v.getVehicleID()+" "+v.getSeats()+" "+v.getDoors()+" "+v.getMake()+" "+v.getModel()+" "+v.getMileage()+" "+v.getYear()+" "+v.getPrice();
+            fw.write(str);
+        }
+
+        fw.close();
 
     }
 
@@ -158,7 +167,7 @@ public class Lot extends MyPanel{
 
         String fileName = "lot.txt";
 
-        Lot d=new Lot();
+        Lot d = new Lot();
         JFrame frame = new JFrame ("MyPanel");
 
         d.loadVehicle(fileName);
