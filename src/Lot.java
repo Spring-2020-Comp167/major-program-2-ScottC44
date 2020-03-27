@@ -31,184 +31,122 @@ public class Lot extends MyPanel{
     public void loadVehicle(String fileName) throws IOException {
         Scanner sc = new Scanner(new File("lot.txt"));
 
+
         while(sc.hasNextLine()){
 
-            if(sc.nextLine().equals("Car")){
-                Car c = new Car();
-                String[] ye = sc.nextLine().split(": ");
-                c.setYear(Integer.parseInt(ye[1]));
-                String[] ma = sc.nextLine().split(": ");
-                c.setMake(ma[1]);
-                String[] mo = sc.nextLine().split(": ");
-                c.setModel(mo[1]);
-                String[] mi = sc.nextLine().split(": ");
-                c.setMileage(Integer.parseInt(mi[1]));
-                String[] mp = sc.nextLine().split(": ");
-                c.setMpg(Integer.parseInt(mp[1]));
-                String[] co = sc.nextLine().split(": ");
-                c.setColor(co[1]);
-                String[] se = sc.nextLine().split(": ");
-                c.setSeats(Integer.parseInt(se[1]));
-                String[] doo = sc.nextLine().split(": ");
-                c.setDoors(Integer.parseInt(doo[1]));
-                String[] pr = sc.nextLine().split(": ");
-                c.setPrice(Double.parseDouble(pr[1]));
-                String[] vid = sc.nextLine().split(": ");
-                c.setVehicleID(vid[1]);
-                Engine e = new Engine();
-                String eeee = sc.nextLine().replace("Engine specifications: ","");
-                String[] en = eeee.split(", ");
-                e.setTransmission(en[0]);
+            String line = sc.nextLine();
+            if(line.isEmpty()) continue;
 
-                if(en[1].equals("2WD")){
-                    e.setFourWheelDrive(false);
-                }else{
-                    e.setFourWheelDrive(true);
-                }
-                String cyl = en[2].replace(" cylinders","");
-                e.setCylinders(Integer.parseInt(cyl));
-                e.setHybrid(Boolean.getBoolean(en[3]));
-                String[] hp = en[4].split(" ");
-                e.setHorsePower(Double.parseDouble(hp[0]));
-                String[] con = sc.nextLine().split(": ");
-                c.setConvertible(Boolean.getBoolean(con[1]));
+            String type = line;
+            String ye = sc.nextLine().replace("Year: ","");
+            String ma = sc.nextLine().replace("Make: ","");
+            String mo = sc.nextLine().replace("Model: ","");
+            String mi = sc.nextLine().replace("Mileage: ","");
+            String mp = sc.nextLine().replace("Miles Per Gallon: ","");
+            String co = sc.nextLine().replace("Color: ","");
+            String se = sc.nextLine().replace("Seats: ","");
+            String doo = sc.nextLine().replace("Doors: ","");
+            String pr = sc.nextLine().replace("Price: ","");
+            String vid = sc.nextLine().replace("VehicleID: ","");
+            String eeee = sc.nextLine().replace("Engine specifications: ","");
+            String[] en = eeee.split(", ");
+            Engine e = new Engine();
+            e.setTransmission(en[0]);
+            if(en[1].equals("2WD")){
+                e.setFourWheelDrive(false);
+            }else{
+                e.setFourWheelDrive(true);
+            }
+            String cyl = en[2].replace(" cylinders","");
+            e.setCylinders(Integer.parseInt(cyl));
+            e.setHybrid(Boolean.getBoolean(en[3]));
+            String[] hp = en[4].split(" ");
+            e.setHorsePower(Double.parseDouble(hp[0]));
+
+            if(type.equals("Car")){
+
+                Car c = new Car();
+                c.setYear(Integer.parseInt(ye));
+                c.setMake(ma);
+                c.setModel(mo);
+                c.setMileage(Integer.parseInt(mi));
+                c.setMpg(Integer.parseInt(mp));
+                c.setColor(co);
+                c.setSeats(Integer.parseInt(se));
+                c.setDoors(Integer.parseInt(doo));
+                c.setPrice(Double.parseDouble(pr));
+                c.setVehicleID(vid);
+
+                String con = sc.nextLine().replace("Convertible: ","");
+                c.setConvertible(Boolean.getBoolean(con));
                 c.setEngine(e);
                 vehicles.add(c);
-                continue;
+
             }
 
-            if(sc.nextLine().equals("Truck")){
+            if(type.equals("Truck")){
                 Truck t = new Truck();
-                String[] ye = sc.nextLine().split(": ");
-                t.setYear(Integer.parseInt(ye[1]));
-                String[] ma = sc.nextLine().split(": ");
-                t.setMake(ma[1]);
-                String[] mo = sc.nextLine().split(": ");
-                t.setModel(mo[1]);
-                String[] mi = sc.nextLine().split(": ");
-                t.setMileage(Integer.parseInt(mi[1]));
-                String[] mp = sc.nextLine().split(": ");
-                t.setMpg(Integer.parseInt(mp[1]));
-                String[] co = sc.nextLine().split(": ");
-                t.setColor(co[1]);
-                String[] se = sc.nextLine().split(": ");
-                t.setSeats(Integer.parseInt(se[1]));
-                String[] doo = sc.nextLine().split(": ");
-                t.setDoors(Integer.parseInt(doo[1]));
-                String[] pr = sc.nextLine().split(": ");
-                t.setPrice(Double.parseDouble(pr[1]));
-                String[] vid = sc.nextLine().split(": ");
-                t.setVehicleID(vid[1]);
-                Engine e = new Engine();
-                String eeee = sc.nextLine().replace("Engine specifications: ","");
-                String[] en = eeee.split(", ");
-                e.setTransmission(en[0]);
 
-                if(en[1].equals("2WD")){
-                    e.setFourWheelDrive(false);
-                }else{
-                    e.setFourWheelDrive(true);
-                }
-                String cyl = en[2].replace(" cylinders","");
-                e.setCylinders(Integer.parseInt(cyl));
-                e.setHybrid(Boolean.getBoolean(en[3]));
-                String[] hp = en[4].split(" ");
-                e.setHorsePower(Double.parseDouble(hp[0]));
-                String[] bs = sc.nextLine().split(": ");
-                t.setBedSpace(Double.parseDouble(bs[1]));
+                t.setYear(Integer.parseInt(ye));
+                t.setMake(ma);
+                t.setModel(mo);
+                t.setMileage(Integer.parseInt(mi));
+                t.setMpg(Integer.parseInt(mp));
+                t.setColor(co);
+                t.setSeats(Integer.parseInt(se));
+                t.setDoors(Integer.parseInt(doo));
+                t.setPrice(Double.parseDouble(pr));
+                t.setVehicleID(vid);
+
+                String bs = sc.nextLine().replace("Bed Space: ","");
+                t.setBedSpace(Double.parseDouble(bs));
                 t.setEngine(e);
                 vehicles.add(t);
-                continue;
+
             }
 
-            if(sc.nextLine().equals("SUV")){
+            if(type.equals("SUV")){
                 SUV s = new SUV();
-                String[] ye = sc.nextLine().split(": ");
-                s.setYear(Integer.parseInt(ye[1]));
-                String[] ma = sc.nextLine().split(": ");
-                s.setMake(ma[1]);
-                String[] mo = sc.nextLine().split(": ");
-                s.setModel(mo[1]);
-                String[] mi = sc.nextLine().split(": ");
-                s.setMileage(Integer.parseInt(mi[1]));
-                String[] mp = sc.nextLine().split(": ");
-                s.setMpg(Integer.parseInt(mp[1]));
-                String[] co = sc.nextLine().split(": ");
-                s.setColor(co[1]);
-                String[] se = sc.nextLine().split(": ");
-                s.setSeats(Integer.parseInt(se[1]));
-                String[] doo = sc.nextLine().split(": ");
-                s.setDoors(Integer.parseInt(doo[1]));
-                String[] pr = sc.nextLine().split(": ");
-                s.setPrice(Double.parseDouble(pr[1]));
-                String[] vid = sc.nextLine().split(": ");
-                s.setVehicleID(vid[1]);
-                Engine e = new Engine();
-                String eeee = sc.nextLine().replace("Engine specifications: ","");
-                String[] en = eeee.split(", ");
-                e.setTransmission(en[0]);
 
-                if(en[1].equals("2WD")){
-                    e.setFourWheelDrive(false);
-                }else{
-                    e.setFourWheelDrive(true);
-                }
-                String cyl = en[2].replace(" cylinders","");
-                e.setCylinders(Integer.parseInt(cyl));
-                e.setHybrid(Boolean.getBoolean(en[3]));
-                String[] hp = en[4].split(" ");
-                e.setHorsePower(Double.parseDouble(hp[0]));
-                String[] cs = sc.nextLine().split(": ");
-                s.setCargoSpace(Double.parseDouble(cs[1]));
-                String[] rs = sc.nextLine().split(": ");
-                s.setRemovableSeats(Boolean.getBoolean(rs[1]));
+                s.setYear(Integer.parseInt(ye));
+                s.setMake(ma);
+                s.setModel(mo);
+                s.setMileage(Integer.parseInt(mi));
+                s.setMpg(Integer.parseInt(mp));
+                s.setColor(co);
+                s.setSeats(Integer.parseInt(se));
+                s.setDoors(Integer.parseInt(doo));
+                s.setPrice(Double.parseDouble(pr));
+                s.setVehicleID(vid);
+
+
+                String cs = sc.nextLine().replace("Cargo Space: ","");
+                s.setCargoSpace(Double.parseDouble(cs));
+                String rs = sc.nextLine().replace("Removable Seats: ","");
+                s.setRemovableSeats(Boolean.getBoolean(rs));
                 s.setEngine(e);
                 vehicles.add(s);
-                continue;
+
             }
 
-            if(sc.nextLine().equals("Van")){
+            if(type.equals("Van")){
                 MiniVan mv = new MiniVan();
-                String[] ye = sc.nextLine().split(": ");
-                mv.setYear(Integer.parseInt(ye[1]));
-                String[] ma = sc.nextLine().split(": ");
-                mv.setMake(ma[1]);
-                String[] mo = sc.nextLine().split(": ");
-                mv.setModel(mo[1]);
-                String[] mi = sc.nextLine().split(": ");
-                mv.setMileage(Integer.parseInt(mi[1]));
-                String[] mp = sc.nextLine().split(": ");
-                mv.setMpg(Integer.parseInt(mp[1]));
-                String[] co = sc.nextLine().split(": ");
-                mv.setColor(co[1]);
-                String[] se = sc.nextLine().split(": ");
-                mv.setSeats(Integer.parseInt(se[1]));
-                String[] doo = sc.nextLine().split(": ");
-                mv.setDoors(Integer.parseInt(doo[1]));
-                String[] pr = sc.nextLine().split(": ");
-                mv.setPrice(Double.parseDouble(pr[1]));
-                String[] vid = sc.nextLine().split(": ");
-                mv.setVehicleID(vid[1]);
-                Engine e = new Engine();
-                String eeee = sc.nextLine().replace("Engine specifications: ","");
-                String[] en = eeee.split(", ");
-                e.setTransmission(en[0]);
 
-                if(en[1].equals("2WD")){
-                    e.setFourWheelDrive(false);
-                }else{
-                    e.setFourWheelDrive(true);
-                }
-                String cyl = en[2].replace(" cylinders","");
-                e.setCylinders(Integer.parseInt(cyl));
-                e.setHybrid(Boolean.getBoolean(en[3]));
-                String[] hp = en[4].split(" ");
-                e.setHorsePower(Double.parseDouble(hp[0]));
-                String[] sd = sc.nextLine().split(": ");
-                mv.setSlidingDoors(Boolean.getBoolean(sd[1]));
+                mv.setYear(Integer.parseInt(ye));
+                mv.setMake(ma);
+                mv.setModel(mo);
+                mv.setMileage(Integer.parseInt(mi));
+                mv.setMpg(Integer.parseInt(mp));
+                mv.setColor(co);
+                mv.setSeats(Integer.parseInt(se));
+                mv.setDoors(Integer.parseInt(doo));
+                mv.setPrice(Double.parseDouble(pr));
+                mv.setVehicleID(vid);
+
+                String sd = sc.nextLine().replace("Sliding doors: ","");
+                mv.setSlidingDoors(Boolean.getBoolean(sd));
                 mv.setEngine(e);
                 vehicles.add(mv);
-                continue;
             }
         }
     }
@@ -231,6 +169,7 @@ public class Lot extends MyPanel{
         for(Vehicle v:l) {
             s+="-> "+v.toString()+"\n";
         }
+        System.out.println(vehicles.toString());
 
 
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);

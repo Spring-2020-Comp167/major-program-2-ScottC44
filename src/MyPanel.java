@@ -15,6 +15,7 @@ public class MyPanel extends JPanel {
     public static JTextArea jcomp9;
     public JLabel jcomp10;
     public JLabel jcomp11;
+    public static JScrollPane scroll;
 
     public MyPanel() {
         //construct preComponents
@@ -29,9 +30,11 @@ public class MyPanel extends JPanel {
         jcomp6 = new JLabel ("Add a(n):");
         jcomp7 = new JLabel ("CARMAX");
         jcomp8 = new JTextField (5);
-        jcomp9 = new JTextArea (5, 5);
+        jcomp9 = new JTextArea ();
         jcomp10 = new JLabel ("Add a vehicle:");
         jcomp11 = new JLabel ("Vehicle Database");
+        JScrollPane scroll = new JScrollPane (jcomp9,
+                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
         //adjust size and set layout
         setPreferredSize (new Dimension (463, 568));
@@ -49,6 +52,7 @@ public class MyPanel extends JPanel {
         add (jcomp9);
         add (jcomp10);
         add (jcomp11);
+        add (scroll);
 
         //set component bounds (only needed by Absolute Positioning)
         jcomp1.setBounds (325, 35, 100, 20);
@@ -59,7 +63,7 @@ public class MyPanel extends JPanel {
         jcomp6.setBounds (5, 60, 65, 25);
         jcomp7.setBounds (5, 5, 100, 25);
         jcomp8.setBounds (25, 130, 360, 160);
-        jcomp9.setBounds (25, 320, 360, 225);
+        jcomp9.setBounds (25, 320, 360, 300);
         jcomp10.setBounds (25, 105, 100, 25);
         jcomp11.setBounds (25, 290, 100, 25);
     }
