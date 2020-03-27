@@ -16,6 +16,6 @@ public class Car extends Vehicle{
     }
     @Override
     public String toString() {
-        return super.toString()+" convertible: "+convertible;
+        return super.toString()+"\n convertible: "+convertible;
     }
 }

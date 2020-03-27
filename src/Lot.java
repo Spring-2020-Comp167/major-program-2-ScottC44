@@ -55,23 +55,26 @@ public class Lot extends MyPanel{
                 c.setPrice(Double.parseDouble(pr[1]));
                 String[] vid = sc.nextLine().split(": ");
                 c.setVehicleID(vid[1]);
-
-
-
                 Engine e = new Engine();
-                String[] en = sc.nextLine().split(": |, ");
-                e.setTransmission(en[1]);
-                e.setFourWheelDrive(Boolean.getBoolean(en[2]));
-                String[] cyl = en[3].split(" ");
-                e.setCylinders(Integer.parseInt(cyl[0]));
-                e.setHybrid(Boolean.getBoolean(en[4]));
-                String[] hp = en[5].split(" ");
-                e.setHorsePower(Double.parseDouble(hp[0]));
+                String eeee = sc.nextLine().replace("Engine specifications: ","");
+                String[] en = eeee.split(", ");
+                e.setTransmission(en[0]);
 
+                if(en[1].equals("2WD")){
+                    e.setFourWheelDrive(false);
+                }else{
+                    e.setFourWheelDrive(true);
+                }
+                String cyl = en[2].replace(" cylinders","");
+                e.setCylinders(Integer.parseInt(cyl));
+                e.setHybrid(Boolean.getBoolean(en[3]));
+                String[] hp = en[4].split(" ");
+                e.setHorsePower(Double.parseDouble(hp[0]));
                 String[] con = sc.nextLine().split(": ");
                 c.setConvertible(Boolean.getBoolean(con[1]));
-
+                c.setEngine(e);
                 vehicles.add(c);
+                continue;
             }
 
             if(sc.nextLine().equals("Truck")){
@@ -96,22 +99,26 @@ public class Lot extends MyPanel{
                 t.setPrice(Double.parseDouble(pr[1]));
                 String[] vid = sc.nextLine().split(": ");
                 t.setVehicleID(vid[1]);
-
-
                 Engine e = new Engine();
-                String[] en = sc.nextLine().split(": |, ");
-                e.setTransmission(en[1]);
-                e.setFourWheelDrive(Boolean.getBoolean(en[2]));
-                String[] cyl = en[3].split(" ");
-                e.setCylinders(Integer.parseInt(cyl[0]));
-                e.setHybrid(Boolean.getBoolean(en[4]));
-                String[] hp = en[5].split(" ");
-                e.setHorsePower(Double.parseDouble(hp[0]));
+                String eeee = sc.nextLine().replace("Engine specifications: ","");
+                String[] en = eeee.split(", ");
+                e.setTransmission(en[0]);
 
+                if(en[1].equals("2WD")){
+                    e.setFourWheelDrive(false);
+                }else{
+                    e.setFourWheelDrive(true);
+                }
+                String cyl = en[2].replace(" cylinders","");
+                e.setCylinders(Integer.parseInt(cyl));
+                e.setHybrid(Boolean.getBoolean(en[3]));
+                String[] hp = en[4].split(" ");
+                e.setHorsePower(Double.parseDouble(hp[0]));
                 String[] bs = sc.nextLine().split(": ");
                 t.setBedSpace(Double.parseDouble(bs[1]));
-
+                t.setEngine(e);
                 vehicles.add(t);
+                continue;
             }
 
             if(sc.nextLine().equals("SUV")){
@@ -136,24 +143,28 @@ public class Lot extends MyPanel{
                 s.setPrice(Double.parseDouble(pr[1]));
                 String[] vid = sc.nextLine().split(": ");
                 s.setVehicleID(vid[1]);
-
-
                 Engine e = new Engine();
-                String[] en = sc.nextLine().split(": |, ");
-                e.setTransmission(en[1]);
-                e.setFourWheelDrive(Boolean.getBoolean(en[2]));
-                String[] cyl = en[3].split(" ");
-                e.setCylinders(Integer.parseInt(cyl[0]));
-                e.setHybrid(Boolean.getBoolean(en[4]));
-                String[] hp = en[5].split(" ");
-                e.setHorsePower(Double.parseDouble(hp[0]));
+                String eeee = sc.nextLine().replace("Engine specifications: ","");
+                String[] en = eeee.split(", ");
+                e.setTransmission(en[0]);
 
+                if(en[1].equals("2WD")){
+                    e.setFourWheelDrive(false);
+                }else{
+                    e.setFourWheelDrive(true);
+                }
+                String cyl = en[2].replace(" cylinders","");
+                e.setCylinders(Integer.parseInt(cyl));
+                e.setHybrid(Boolean.getBoolean(en[3]));
+                String[] hp = en[4].split(" ");
+                e.setHorsePower(Double.parseDouble(hp[0]));
                 String[] cs = sc.nextLine().split(": ");
                 s.setCargoSpace(Double.parseDouble(cs[1]));
                 String[] rs = sc.nextLine().split(": ");
                 s.setRemovableSeats(Boolean.getBoolean(rs[1]));
-
+                s.setEngine(e);
                 vehicles.add(s);
+                continue;
             }
 
             if(sc.nextLine().equals("Van")){
@@ -178,34 +189,28 @@ public class Lot extends MyPanel{
                 mv.setPrice(Double.parseDouble(pr[1]));
                 String[] vid = sc.nextLine().split(": ");
                 mv.setVehicleID(vid[1]);
-
-
                 Engine e = new Engine();
-                String[] en = sc.nextLine().split(": |, ");
-                e.setTransmission(en[1]);
-                e.setFourWheelDrive(Boolean.getBoolean(en[2]));
-                String[] cyl = en[3].split(" ");
-                e.setCylinders(Integer.parseInt(cyl[0]));
-                e.setHybrid(Boolean.getBoolean(en[4]));
-                String[] hp = en[5].split(" ");
-                e.setHorsePower(Double.parseDouble(hp[0]));
+                String eeee = sc.nextLine().replace("Engine specifications: ","");
+                String[] en = eeee.split(", ");
+                e.setTransmission(en[0]);
 
+                if(en[1].equals("2WD")){
+                    e.setFourWheelDrive(false);
+                }else{
+                    e.setFourWheelDrive(true);
+                }
+                String cyl = en[2].replace(" cylinders","");
+                e.setCylinders(Integer.parseInt(cyl));
+                e.setHybrid(Boolean.getBoolean(en[3]));
+                String[] hp = en[4].split(" ");
+                e.setHorsePower(Double.parseDouble(hp[0]));
                 String[] sd = sc.nextLine().split(": ");
                 mv.setSlidingDoors(Boolean.getBoolean(sd[1]));
-
-
+                mv.setEngine(e);
                 vehicles.add(mv);
-
+                continue;
             }
-
-
-          //Engine e = new Engine(en[1],Integer.parseInt(en[3]),Boolean.getBoolean(en[2]),Boolean.getBoolean(en[4]),Double.parseDouble(en[5]));
-          // Vehicle v = new Vehicle(Integer.parseInt(mp[1]),co[1],e,vid[1],Integer.parseInt(se[1]),Integer.parseInt(doo[1]),ma[1],mo[1],Integer.parseInt(mp[1]),Integer.parseInt(ye[1]),Double.parseDouble(pr[1]));
-          // vehicles.add(v);
-
         }
-
-
     }
     public void saveVehicles(String fileName) throws IOException {
 
@@ -220,16 +225,21 @@ public class Lot extends MyPanel{
 
         d.loadVehicle(fileName);
 
+        //String z = vehicles.toString();
         List<Vehicle>l=d.getVehicles();
-        StringBuilder s= new StringBuilder();
+        String s="";
         for(Vehicle v:l) {
-            s.append("-> ").append(v.toString()).append("\n");
+            s+="-> "+v.toString()+"\n";
         }
+
 
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add (new MyPanel());
         frame.pack();
         frame.setVisible (true);
+
+        jcomp9.setText(s);
+
     }
 }
 
