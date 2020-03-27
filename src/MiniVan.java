@@ -22,6 +22,6 @@ public class MiniVan extends Vehicle{
     }
     @Override
     public String toString() {
-        return super.toString()+"\nSliding doors: "+slidingDoors+"\n";
+        return super.toString()+"\nSliding doors: "+slide()+"\n";
     }
 }

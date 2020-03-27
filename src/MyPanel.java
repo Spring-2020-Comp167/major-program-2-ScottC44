@@ -7,8 +7,8 @@ public class MyPanel extends JPanel {
     public static JButton jcomp1;
     public static JButton jcomp2;
     public static JComboBox jcomp3;
-    public  JTextField jcomp4;
-    public static JLabel jcomp5;
+    public  static JTextField jcomp4;
+    public  JLabel jcomp5;
     public JLabel jcomp6;
     public JLabel jcomp7;
     public static JTextArea jcomp8;

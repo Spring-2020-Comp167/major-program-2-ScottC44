@@ -209,7 +209,7 @@ public class Lot extends MyPanel{
         jcomp1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String id = jcomp5.getText();
+                String id = jcomp4.getText();
                 ArrayList<Vehicle>l= getVehicles();
                 for(Vehicle v:l) {
                     if(v.getVehicleID().equals(id)) {
