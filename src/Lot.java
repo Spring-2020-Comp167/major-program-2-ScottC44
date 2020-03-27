@@ -166,7 +166,7 @@ public class Lot extends MyPanel{
     public static void main(String[] args) throws IOException {
 
         String fileName = "lot.txt";
-
+//
         Lot d = new Lot();
         JFrame frame = new JFrame ("MyPanel");
 
