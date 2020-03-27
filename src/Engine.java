@@ -45,8 +45,22 @@ public class Engine{
         this.hybrid=hybrid;
         this.horsePower=horsePower;
     }
+
+    public String hyb(){
+        if(isHybrid() ==true)
+            return "hybrid";
+        else
+            return "non-hybrid";
+    }
+    public String drive(){
+        if(isFourWheelDrive() == true)
+            return "4WD";
+        else
+            return "2WD";
+    }
+
     @Override
     public String toString() {
-        return "Transmission: "+transmission+"\n cylinders: "+cylinders+"\n four wheel drive: "+fourWheelDrive+"\n hybrid: "+hybrid+"\n horse power: "+horsePower;
+        return "Engine specifications: "+getTransmission()+", "+drive()+", "+getCylinders()+" cylinders, "+hyb()+", "+getHorsePower()+" hp";
     }
 }

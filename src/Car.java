@@ -14,8 +14,14 @@ public class Car extends Vehicle{
     public void setConvertible(boolean convertible) {
         this.convertible = convertible;
     }
+    public String conv(){
+        if(isConvertible() == true)
+            return "Yes";
+        else
+            return "No";
+    }
     @Override
     public String toString() {
-        return super.toString()+"\n convertible: "+convertible;
+        return super.toString()+"\nConvertible: "+conv();
     }
 }

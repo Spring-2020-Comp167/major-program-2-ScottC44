@@ -13,8 +13,15 @@ public class MiniVan extends Vehicle{
     public void setSlidingDoors(boolean slidingDoors) {
         this.slidingDoors = slidingDoors;
     }
+    public String slide(){
+        if(isSlidingDoors() ==true)
+            return "Yes";
+        else
+            return "No";
+
+    }
     @Override
     public String toString() {
-        return super.toString()+" sliding doors: "+slidingDoors;
+        return super.toString()+"\nSliding doors: "+slidingDoors;
     }
 }

@@ -4,14 +4,14 @@ import javax.swing.*;
 import javax.swing.event.*;
 
 public class MyPanel extends JPanel {
-    public JButton jcomp1;
-    public JButton jcomp2;
-    public JComboBox jcomp3;
-    public JTextField jcomp4;
-    public JLabel jcomp5;
+    public static JButton jcomp1;
+    public static JButton jcomp2;
+    public static JComboBox jcomp3;
+    public  JTextField jcomp4;
+    public static JLabel jcomp5;
     public JLabel jcomp6;
     public JLabel jcomp7;
-    public JTextField jcomp8;
+    public static JTextArea jcomp8;
     public  static JTextArea jcomp9;
     public JLabel jcomp10;
     public JLabel jcomp11;
@@ -19,7 +19,7 @@ public class MyPanel extends JPanel {
 
     public MyPanel() {
         //construct preComponents
-        String[] jcomp3Items = {"Car", "Truck", "SUV", "Van"};
+        String[] jcomp3Items = {" ","Car", "Truck", "SUV", "Van"};
 
         //construct components
         jcomp1 = new JButton ("Remove");
@@ -29,7 +29,7 @@ public class MyPanel extends JPanel {
         jcomp5 = new JLabel ("Remove (ID):");
         jcomp6 = new JLabel ("Add a(n):");
         jcomp7 = new JLabel ("CARMAX");
-        jcomp8 = new JTextField (5);
+        jcomp8 = new JTextArea ();
         jcomp9 = new JTextArea ();
         jcomp10 = new JLabel ("Add a vehicle:");
         jcomp11 = new JLabel ("Vehicle Database");
@@ -61,11 +61,11 @@ public class MyPanel extends JPanel {
         jcomp5.setBounds (5, 30, 100, 25);
         jcomp6.setBounds (5, 60, 65, 25);
         jcomp7.setBounds (5, 5, 100, 25);
-        jcomp8.setBounds (25, 130, 360, 160);
+        jcomp8.setBounds (25, 130, 360, 250);
         jcomp9.setBounds (25, 320, 360, 300);
         jcomp10.setBounds (25, 105, 100, 25);
         jcomp11.setBounds (25, 290, 100, 25);
-        scroll.setBounds(25, 320, 360, 300);
+        scroll.setBounds(25, 400, 360, 300);
     }
 
 

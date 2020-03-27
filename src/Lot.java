@@ -18,7 +18,7 @@ public class Lot extends MyPanel{
     public void setLotName(String lotName) {
         this.lotName = lotName;
     }
-    public ArrayList<Vehicle> getVehicles() {
+    public static ArrayList<Vehicle> getVehicles() {
         return vehicles;
     }
     public void setVehicles(ArrayList<Vehicle> vehicles) {
@@ -119,7 +119,6 @@ public class Lot extends MyPanel{
                 s.setPrice(Double.parseDouble(pr));
                 s.setVehicleID(vid);
 
-
                 String cs = sc.nextLine().replace("Cargo Space: ","");
                 s.setCargoSpace(Double.parseDouble(cs));
                 String rs = sc.nextLine().replace("Removable Seats: ","");
@@ -155,7 +154,8 @@ public class Lot extends MyPanel{
 
         for(Vehicle v:vehicles) {
             String str="";
-            str+=v.getMpg()+" "+v.getColor()+" "+v.getEngine().getTransmission()+" "+v.getEngine().getCylinders()+" "+v.getEngine().isFourWheelDrive()+" "+v.getEngine().isHybrid()+" "+v.getEngine().getHorsePower()+" "+v.getVehicleID()+" "+v.getSeats()+" "+v.getDoors()+" "+v.getMake()+" "+v.getModel()+" "+v.getMileage()+" "+v.getYear()+" "+v.getPrice();
+           // str+=  v.getMpg()+"\n"+v.getColor()+"\n"+v.getEngine().getTransmission()+"\n"+v.getEngine().getCylinders()+"\n"+v.getEngine().isFourWheelDrive()+"\n"+v.getEngine().isHybrid()+"\n"+v.getEngine().getHorsePower()+"\n"+v.getVehicleID()+"\n"+v.getSeats()+"\n"+v.getDoors()+"\n"+v.getMake()+"\n"+v.getModel()+"\n"+v.getMileage()+" "+v.getYear()+" "+v.getPrice();
+            str += jcomp9.getText();
             fw.write(str);
         }
 
@@ -172,21 +172,121 @@ public class Lot extends MyPanel{
 
         d.loadVehicle(fileName);
 
-        //String z = vehicles.toString();
-        List<Vehicle>l=d.getVehicles();
-        String s="";
-        for(Vehicle v:l) {
-            s+="-> "+v.toString()+"\n";
-        }
-        System.out.println(vehicles.toString());
+
 
 
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add (new MyPanel());
         frame.pack();
         frame.setVisible (true);
+        StringBuilder vehicles = new StringBuilder();
+        for(int i = 0; i < Lot.getVehicles().size(); i++){
+            String vehicle = Lot.getVehicles().get(i).toString();
+            vehicles.append(vehicle);
+        }
+        jcomp9.setText(String.valueOf(vehicles));
 
-        jcomp9.setText(s);
+        jcomp3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+
+                JComboBox jcomp3 = (JComboBox) event.getSource();
+                String selection = (String) jcomp3.getSelectedItem();
+
+                if (selection.equals("Car")) {
+                    jcomp8.setText("Car" + "\nYear: " + "\nMake: " + "\nModel: " + "\nMileage: " + "\nMiles Per Gallon: " + "\nColor: " + "\nSeats: " + "\nDoors: " + "\nPrice: " + "\nVehicleID: " + "\nEngine Specifications: " + "\nConvertible: ");
+                }
+                if (selection.equals("Truck")) {
+                    jcomp8.setText("Truck" + "\nYear: " + "\nMake: " + "\nModel: " + "\nMileage: " + "\nMiles Per Gallon: " + "\nColor: " + "\nSeats: " + "\nDoors: " + "\nPrice: " + "\nVehicleID: " + "\nEngine Specifications: " + "\nBed Space: ");
+                }
+                if (selection.equals("SUV")) {
+                    jcomp8.setText("SUV" + "\nYear: " + "\nMake: " + "\nModel: " + "\nMileage: " + "\nMiles Per Gallon: " + "\nColor: " + "\nSeats: " + "\nDoors: " + "\nPrice: " + "\nVehicleID: " + "\nEngine Specifications: " + "\nCargo Space: " + "\nRemovable Seats: ");
+                }
+                if (selection.equals("Van")) {
+                    jcomp8.setText("Van" + "\nYear: " + "\nMake: " + "\nModel: " + "\nMileage: " + "\nMiles Per Gallon: " + "\nColor: " + "\nSeats: " + "\nDoors: " + "\nPrice: " + "\nVehicleID: " + "\nEngine Specifications: " + "\nSliding doors: ");
+                }
+                if(selection.equals(" ")){
+                    jcomp8.setText("");
+                }
+            }
+        });
+        //remove
+        jcomp1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String id = jcomp5.getText();
+                ArrayList<Vehicle>l=d.getVehicles();
+                for(Vehicle v:l) {
+                    if(v.getVehicleID().equals(id)) {
+                        l.remove(v);
+                        break;
+                    }
+                }
+                d.setVehicles(l);
+                String ss="";
+                for(Vehicle vv:l) {
+                    ss+= vv.toString()+"\n";
+                }
+                jcomp9.setText(null);
+                jcomp9.setText(ss);
+                try {
+                    d.saveVehicles("lot.txt");
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+            }
+        });
+        //add
+        jcomp2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FileWriter fw= null;
+                try {
+                    fw = new FileWriter(fileName);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    fw.append(jcomp8.getText());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    d.loadVehicle(fileName);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+
+                /*
+                String s = jcomp8.getText();
+                String m[]=s.split(" ");
+                Engine ee=new Engine(m[2],Integer.parseInt(m[3]),Boolean.getBoolean(m[4]),Boolean.getBoolean(m[5]),Double.parseDouble(m[6]));
+                Vehicle v=new Vehicle(Integer.parseInt(m[0]),m[1],ee,m[7],Integer.parseInt(m[8]),Integer.parseInt(m[9]),m[10],m[11],Integer.parseInt(m[12]),Integer.parseInt(m[13]),Double.parseDouble(m[14]));
+                ArrayList<Vehicle>l=d.getVehicles();
+                l.add(v);
+                d.setVehicles(l);
+
+
+                String ss="";
+                for(Vehicle vv:l) {
+                    ss+=vv.toString()+"\n";
+                }
+                jcomp9.setText(null);
+                jcomp9.setText(ss);
+                try {
+                    d.saveVehicles("lot.txt");
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+                */
+            }
+
+
+        });
+
+
+        //jcomp9.setText(s);
 
     }
 }
