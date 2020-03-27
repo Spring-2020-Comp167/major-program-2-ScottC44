@@ -13,7 +13,7 @@ Engine specifications: Automatic, 2WD, 4 cylinders, non-hybrid, 146.3 hp
 Convertible: No
 Car
 Year: 2014
-Make: Nissan 
+Make: Nissan
 Model: Altima S
 Mileage: 102486
 Miles Per Gallon: 36
@@ -39,7 +39,7 @@ Engine specifications: Automatic, 4WD, 6 cylinders, non-hybrid, 357.5 hp
 Bed Space: 18.4
 Car
 Year: 2019
-Make: Ford 
+Make: Ford
 Model: Fusion Hybrid Titanium
 Mileage: 38579
 Miles Per Gallon: 43
@@ -49,7 +49,7 @@ Doors: 4
 Price: 19998.99
 VehicleID: 004
 Engine specifications: Automatic, 2WD, 4 cylinders, hybrid, 245.9 hp
-Convertable: No
+Convertible: No
 SUV
 Year: 2015
 Make: GMC
