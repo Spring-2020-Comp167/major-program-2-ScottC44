@@ -10,6 +10,7 @@ import javax.swing.*;
 
 public class Lot extends MyPanel{
     private String lotName;
+
     private static ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
 
     public String getLotName() {
@@ -29,15 +30,13 @@ public class Lot extends MyPanel{
     }
 
     public void loadVehicle(String fileName) throws IOException {
-        Scanner sc = new Scanner(new File("lot.txt"));
+        Scanner sc = new Scanner(new File(fileName));
 
 
         while(sc.hasNextLine()){
 
             String line = sc.nextLine();
-            if(line.isEmpty()) continue;
-
-            String type = line;
+            if(line.isEmpty())continue;
             String ye = sc.nextLine().replace("Year: ","");
             String ma = sc.nextLine().replace("Make: ","");
             String mo = sc.nextLine().replace("Model: ","");
@@ -63,9 +62,11 @@ public class Lot extends MyPanel{
             String[] hp = en[4].split(" ");
             e.setHorsePower(Double.parseDouble(hp[0]));
 
-            if(type.equals("Car")){
+            if(line.equals("Car")){
 
                 Car c = new Car();
+                c.setType(line);
+
                 c.setYear(Integer.parseInt(ye));
                 c.setMake(ma);
                 c.setModel(mo);
@@ -84,9 +85,9 @@ public class Lot extends MyPanel{
 
             }
 
-            if(type.equals("Truck")){
+            if(line.equals("Truck")){
                 Truck t = new Truck();
-
+                t.setType(line);
                 t.setYear(Integer.parseInt(ye));
                 t.setMake(ma);
                 t.setModel(mo);
@@ -105,9 +106,9 @@ public class Lot extends MyPanel{
 
             }
 
-            if(type.equals("SUV")){
+            if(line.equals("SUV")){
                 SUV s = new SUV();
-
+                s.setType(line);
                 s.setYear(Integer.parseInt(ye));
                 s.setMake(ma);
                 s.setModel(mo);
@@ -128,9 +129,9 @@ public class Lot extends MyPanel{
 
             }
 
-            if(type.equals("Van")){
+            if(line.equals("Van")){
                 MiniVan mv = new MiniVan();
-
+                mv.setType(line);
                 mv.setYear(Integer.parseInt(ye));
                 mv.setMake(ma);
                 mv.setModel(mo);
@@ -152,13 +153,8 @@ public class Lot extends MyPanel{
     public void saveVehicles(String fileName) throws IOException {
         FileWriter fw=new FileWriter(fileName);
 
-        for(Vehicle v:vehicles) {
-            String str="";
-           // str+=  v.getMpg()+"\n"+v.getColor()+"\n"+v.getEngine().getTransmission()+"\n"+v.getEngine().getCylinders()+"\n"+v.getEngine().isFourWheelDrive()+"\n"+v.getEngine().isHybrid()+"\n"+v.getEngine().getHorsePower()+"\n"+v.getVehicleID()+"\n"+v.getSeats()+"\n"+v.getDoors()+"\n"+v.getMake()+"\n"+v.getModel()+"\n"+v.getMileage()+" "+v.getYear()+" "+v.getPrice();
-            str += jcomp9.getText();
-            fw.write(str);
-        }
-
+        String str = jcomp9.getText();
+        fw.write(str);
         fw.close();
 
     }
@@ -168,7 +164,7 @@ public class Lot extends MyPanel{
         String fileName = "lot.txt";
 //
         Lot d = new Lot();
-        JFrame frame = new JFrame ("MyPanel");
+        JFrame frame = new JFrame ("Car Lot");
 
         d.loadVehicle(fileName);
 
@@ -214,7 +210,7 @@ public class Lot extends MyPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = jcomp5.getText();
-                ArrayList<Vehicle>l=d.getVehicles();
+                ArrayList<Vehicle>l= getVehicles();
                 for(Vehicle v:l) {
                     if(v.getVehicleID().equals(id)) {
                         l.remove(v);
@@ -230,9 +226,9 @@ public class Lot extends MyPanel{
                 jcomp9.setText(ss);
                 try {
                     d.saveVehicles("lot.txt");
-                } catch (IOException e1) {
+                } catch (IOException ex) {
                     // TODO Auto-generated catch block
-                    e1.printStackTrace();
+                    ex.printStackTrace();
                 }
             }
         });
@@ -240,53 +236,17 @@ public class Lot extends MyPanel{
         jcomp2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FileWriter fw= null;
+                FileWriter fw;
                 try {
                     fw = new FileWriter(fileName);
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-                try {
                     fw.append(jcomp8.getText());
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-                try {
                     d.loadVehicle(fileName);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
 
-                /*
-                String s = jcomp8.getText();
-                String m[]=s.split(" ");
-                Engine ee=new Engine(m[2],Integer.parseInt(m[3]),Boolean.getBoolean(m[4]),Boolean.getBoolean(m[5]),Double.parseDouble(m[6]));
-                Vehicle v=new Vehicle(Integer.parseInt(m[0]),m[1],ee,m[7],Integer.parseInt(m[8]),Integer.parseInt(m[9]),m[10],m[11],Integer.parseInt(m[12]),Integer.parseInt(m[13]),Double.parseDouble(m[14]));
-                ArrayList<Vehicle>l=d.getVehicles();
-                l.add(v);
-                d.setVehicles(l);
-
-
-                String ss="";
-                for(Vehicle vv:l) {
-                    ss+=vv.toString()+"\n";
-                }
-                jcomp9.setText(null);
-                jcomp9.setText(ss);
-                try {
-                    d.saveVehicles("lot.txt");
-                } catch (IOException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
-                */
             }
-
-
         });
-
-
-        //jcomp9.setText(s);
 
     }
 }

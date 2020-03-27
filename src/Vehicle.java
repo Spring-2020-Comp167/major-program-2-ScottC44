@@ -5,6 +5,7 @@ public class Vehicle{
     private String vehicleID;
     private int seats;
     private int doors;
+    private String type;
     public int getMpg() {
         return mpg;
     }
@@ -71,6 +72,14 @@ public class Vehicle{
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+    public String getType(){
+        return type;
+    }
+
     private String make;
     private String model;
     private int mileage;
@@ -92,10 +101,11 @@ public class Vehicle{
         this.mileage=mileage;
         this.year=yr;
         this.price=price;
+
     }
     @Override
     public String toString() {
-        return "Year: "+year+"\nMake: "+make+"\nModel: "+model+"\nMileage: "+mileage+"\nMiles Per Gallon: "+mpg+"\nColor: "+
+        return  type+"\nYear: "+year+"\nMake: "+make+"\nModel: "+model+"\nMileage: "+mileage+"\nMiles Per Gallon: "+mpg+"\nColor: "+
                 color+"\nSeats: "+seats+"\nDoors: "+doors+"\nPrice: "+price+"\nVehicle ID: "+vehicleID+"\n"+engine.toString();
     }
 }

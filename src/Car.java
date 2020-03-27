@@ -22,6 +22,6 @@ public class Car extends Vehicle{
     }
     @Override
     public String toString() {
-        return super.toString()+"\nConvertible: "+conv();
+        return super.toString()+"\nConvertible: "+conv()+"\n";
     }
 }

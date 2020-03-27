@@ -1,4 +1,5 @@
 public class Truck extends Vehicle{
+
     private double bedSpace;
     public Truck() {
 
@@ -15,6 +16,6 @@ public class Truck extends Vehicle{
     }
     @Override
     public String toString() {
-        return super.toString()+"\nBed Space: "+bedSpace;
+        return super.toString()+"\nBed Space: "+bedSpace+"\n";
     }
 }

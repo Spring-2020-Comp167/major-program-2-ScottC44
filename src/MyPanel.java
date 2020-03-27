@@ -36,7 +36,7 @@ public class MyPanel extends JPanel {
         JScrollPane scroll = new JScrollPane (jcomp9);
 
         //adjust size and set layout
-        setPreferredSize (new Dimension (463, 568));
+        setPreferredSize (new Dimension (600, 800));
         setLayout (null);
 
         //add components

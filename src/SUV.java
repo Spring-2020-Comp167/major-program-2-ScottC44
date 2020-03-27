@@ -1,4 +1,5 @@
 public class SUV extends Vehicle {
+
     private double cargoSpace;
     private boolean removableSeats;
 
@@ -24,6 +25,6 @@ public class SUV extends Vehicle {
     }
     @Override
     public String toString() {
-        return super.toString()+"\nCargo Space: "+cargoSpace+ "\nRemovable Seats: "+removableSeats;
+        return super.toString()+"\nCargo Space: "+cargoSpace+ "\nRemovable Seats: "+removableSeats+"\n";
     }
 }
