@@ -83,3 +83,16 @@ VehicleID: 007
 Engine specifications: Automatic, 2WD, 8 cylinders, non-hybrid, 377.9 hp
 Bed Space: 15.8
 
+Car
+Year: 2013
+Make: Hyundai
+Model: Elantra GLS
+Mileage: 90462
+Miles Per Gallon: 31
+Color: White
+Seats: 4
+Doors: 4
+Price: 10599.99
+VehicleID: 001
+Engine Specifications: Automatic, 2WD, 4 cylinders, non-hybrid, 146.3 hp
+Convertible: No

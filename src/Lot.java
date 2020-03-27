@@ -236,12 +236,14 @@ public class Lot extends MyPanel{
         jcomp2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FileWriter fw;
-                try {
-                    fw = new FileWriter(fileName);
-                    fw.append(jcomp8.getText());
-                    d.loadVehicle(fileName);
+                try(FileWriter fw = new FileWriter(fileName, true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    PrintWriter out = new PrintWriter(bw))
+                {
+                    out.print(jcomp8.getText());
+
                 } catch (IOException ex) {
+
                     ex.printStackTrace();
                 }
 
