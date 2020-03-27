@@ -106,6 +106,6 @@ public class Vehicle{
     @Override
     public String toString() {
         return  type+"\nYear: "+year+"\nMake: "+make+"\nModel: "+model+"\nMileage: "+mileage+"\nMiles Per Gallon: "+mpg+"\nColor: "+
-                color+"\nSeats: "+seats+"\nDoors: "+doors+"\nPrice: "+price+"\nVehicle ID: "+vehicleID+"\n"+engine.toString();
+                color+"\nSeats: "+seats+"\nDoors: "+doors+"\nPrice: "+price+"\nVehicleID: "+vehicleID+"\n"+engine.toString();
     }
 }

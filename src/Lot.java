@@ -46,7 +46,7 @@ public class Lot extends MyPanel{
             String se = sc.nextLine().replace("Seats: ","");
             String doo = sc.nextLine().replace("Doors: ","");
             String pr = sc.nextLine().replace("Price: ","");
-            String vid = sc.nextLine().replace("VehicleID: ","");
+            String vid = sc.nextLine().replace("VehicleID: " ,"");
             String eeee = sc.nextLine().replace("Engine specifications: ","");
             String[] en = eeee.split(", ");
             Engine e = new Engine();
